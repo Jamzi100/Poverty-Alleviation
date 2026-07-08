@@ -10,6 +10,7 @@ function About() {
       <AboutHero />
       <AboutContent />
       <Mission />
+      <WhatWeDo />
     </div>
   );
 }
