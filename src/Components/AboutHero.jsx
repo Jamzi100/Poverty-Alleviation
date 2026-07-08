@@ -2,13 +2,15 @@ import Image from "../assets/helping.jpeg";
 
 export default function AboutHero() {
   return (
-    <section>
+    <section className="relative flex flex-col items-center justify-center">
+      <div className="absolute inset-0 bg-black/50">
         <img src={Image} alt="helping hands" className="w-full h-60 overflow-hidden object-cover relative" />
-        <p className="absolute top- right-1/2 transform drop-shadow-[4px_4px_0px_black] flex flex-col items-center justify-center text-white w-1/3 h-50 text-center text-3xl font-bold">
+        </div>
+        <p className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-6 pb-30 font-extrabold text-6xl [text-shadow:6px_6px_12px_rgba(0,0,0,1)]">
           Overview of HopeBridge
         </p>
         <h2> 
-          About Homebridge
+          About HopeBridge
         </h2>
         <p>
           At HopeBridge, we believe that everyone deserves the opportunity to live with dignity, hope, and purpose. Our mission is to reduce poverty by connecting vulnerable individuals and families with the resources, support, and opportunities they need to build a better future.
