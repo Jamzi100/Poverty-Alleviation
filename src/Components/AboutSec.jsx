@@ -3,7 +3,7 @@ import Image from "../assets/struggle.jpeg";
 export default function AboutSec() {
   return (
     <section className="flex items-center justify-center text-center py-24 bg-gray-100">
-        <img src={Image} alt="Children struggling with poverty" className="w-[30%] h-[30%] object-cover rounded-full shadow-2xl" />
+        <img src={Image} alt="Children struggling with poverty" className="w-120 h-120 object-cover rounded-[100%] shadow-2xl" />
         <div className="ml-8 flex flex-col items-center justify-between text-center w-1/2 space-y-4 max-w-2xl">
         <p className="font-bold text-2xl text-gray-800 text-center family-teko">
           ABOUT HOPEBRIDGE
