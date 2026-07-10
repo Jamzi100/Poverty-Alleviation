@@ -1,4 +1,6 @@
 import Image from "../assets/struggle.jpeg";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function AboutSec() {
   return (
@@ -15,9 +17,10 @@ export default function AboutSec() {
         <p className="font-medium text-2xl mt-4 family-teko ">
           HopeBridge is committed to reducing poverty by connecting communities with education, healthcare, food assistance, and sustainable opportunities. We believe every person deserves the chance to build a better future.
         </p>
-        <button className="bg-red-900 text-white px-6 py-3 rounded-full mt-4 hover:bg-red-700 transition duration-300">
-          Learn More
-        </button>
+        <Link to="/About" className="bg-red-900 text-white px-6 py-3 rounded-full mt-4 hover:bg-red-700 transition duration-300 hover:scale-105">
+          Learn More 
+          <FaArrowRight className="inline ml-2" />
+        </Link>
         </div>
     </section>
   );

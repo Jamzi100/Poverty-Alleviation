@@ -11,7 +11,7 @@ export default function AboutHero() {
 
         <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center drop-shadow-[4px_4px_0px_black]">
           <h1 className="text-6xl font-extrabold text-white">
             Overview Of HopeBridge
           </h1>

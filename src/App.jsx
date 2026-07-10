@@ -3,10 +3,10 @@ import './App.css' // Optional
 import Header from "./Components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Contact from "./pages/Contact";
 import Donate from "./pages/Donate";
 import GetInvolved from "./pages/GetInvolved";
-import Impact from "./pages/Impact";
+import Contact from "./pages/Contact";
+import Footer from "./Components/Footer"
 
 function App() {
   return (
@@ -15,11 +15,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/get-involved" element={<GetInvolved />} />
-        <Route path="/impact" element={<Impact />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
