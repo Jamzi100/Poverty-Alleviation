@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "../assets/poverty.webp";
+import Image from "../assets/Poverty.webp"
 
 function Hero() {
   return (
