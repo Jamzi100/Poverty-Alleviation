@@ -10,7 +10,7 @@ export default function ContactHero() {
       />
 
       
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6 drop-shadow-[4px_4px_0px_black]">
         <h1 className="text-5xl md:text-6xl font-bold mb-4">

@@ -10,7 +10,7 @@ export default function AboutHero() {
       />
 
       
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/20"></div>
 
       
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-5 sm:px-8">

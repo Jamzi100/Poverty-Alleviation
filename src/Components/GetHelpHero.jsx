@@ -10,7 +10,7 @@ export default function GetHelpHero() {
       />
       
 
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/10"></div>
 
       <div className="absolute inset-0 flex items-center justify-center drop-shadow-[4px_4px_0px_black]">
         <div className="text-center px-6">

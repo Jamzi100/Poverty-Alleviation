@@ -1,13 +1,12 @@
-import React from "react";
-import GetHelp from "../Components/GetHelpHero";
+import GetHelpHero from "../Components/GetHelpHero";
 import WhoCanApply from "../Components/WhoCanApply";
 import AssistanceType from "../Components/AssistanceType";
 import HopeForm from "../Components/HopeForm";
 
-function GetInvolved() {
+function GetHelp() {
   return (
     <div>
-      <GetHelp />
+      <GetHelpHero />
       <WhoCanApply />
       <AssistanceType />
       <HopeForm />
@@ -15,4 +14,4 @@ function GetInvolved() {
   );
 }
 
-export default GetInvolved;
+export default GetHelp;

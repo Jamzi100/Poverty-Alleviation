@@ -14,7 +14,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-green-300 shadow-lg">
+    <header className="sticky top-0 z-50 bg-gray-300 shadow-lg">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
         <div className="flex items-center justify-between h-20">
@@ -36,8 +36,8 @@ export default function Header() {
                 className={({ isActive }) =>
                   `font-medium transition-colors duration-300 ${
                     isActive
-                      ? "text-black"
-                      : "text-white hover:text-red-500"
+                      ? "text-red-500"
+                      : "text-black hover:text-red-500"
                   }`
                 }
               >
