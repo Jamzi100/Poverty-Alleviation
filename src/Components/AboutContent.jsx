@@ -1,14 +1,14 @@
 import Image from "../assets/volunteer.jpg";
 
-export default function AboutContent(){
-    return(
-        <section className="flex flex-col items-center justify-between text-center max-w-7xl mx-auto px-6 py-20">
-            <div className="max-w-6xl mx-auto py-18 px-6 ">
-                <h2 className="text-5xl text-red-800 font-bold  mb-10">
+export default function AboutContent() {
+  return (
+    <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-red-800 mb-8 sm:mb-10">
           About HopeBridge
         </h2>
 
-        <p className="text-gray-700 leading-8 text-2xl">
+        <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-8 lg:leading-9">
           At HopeBridge, we believe that everyone deserves the opportunity to
           live with dignity, hope, and purpose. Our mission is to reduce poverty
           by connecting vulnerable individuals and families with the resources,
@@ -35,7 +35,7 @@ export default function AboutContent(){
           Together, we can bridge the gap between hardship and opportunity—one
           person, one family, and one community at a time.
         </p>
-        </div>
-        </section>
-    )
+      </div>
+    </section>
+  );
 }

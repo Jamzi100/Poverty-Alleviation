@@ -6,7 +6,6 @@ export default function AboutSec() {
     <section className="bg-gray-100 py-14 sm:py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
-        {/* Image */}
         <div className="flex justify-center w-full lg:w-1/2">
           <img
             src={Image}
@@ -15,7 +14,6 @@ export default function AboutSec() {
           />
         </div>
 
-        {/* Text */}
         <div className="w-full lg:w-1/2 text-center lg:text-left">
           <p className="text-lg sm:text-xl font-bold text-gray-800 tracking-wide">
             ABOUT HOPEBRIDGE

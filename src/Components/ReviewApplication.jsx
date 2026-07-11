@@ -16,7 +16,7 @@ function ReviewApplication({ formData, handleChange }) {
           <p><strong>First Name:</strong> {formData.firstName}</p>
           <p><strong>Last Name:</strong> {formData.lastName}</p>
           <p><strong>Email:</strong> {formData.email}</p>
-          <p><strong>Phone Number:</strong> {formData.phoneNumber}</p>
+          <p><strong>Phone Number:</strong> {formData.phone}</p>
           <p><strong>Gender:</strong> {formData.gender}</p>
           <p><strong>Country:</strong> {formData.country}</p>
           <p><strong>State:</strong> {formData.state}</p>

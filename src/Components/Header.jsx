@@ -1,33 +1,106 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../assets/hopebridge-logo.png";
 
-export default function DonateCTA() {
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Get Help", path: "/get-help" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
-    <section className="bg-green-700 py-14 sm:py-16 lg:py-20">
-      <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-          Together, We Can Change Lives
-        </h2>
+    <header className="sticky top-0 z-50 bg-green-900 shadow-lg">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
-        <p className="mt-5 text-base sm:text-lg text-green-100 max-w-3xl mx-auto leading-7 sm:leading-8">
-          Every donation helps HopeBridge provide food, education,
-          healthcare, housing, skills training, and opportunities for
-          individuals and families in need. Your generosity creates hope
-          and empowers communities to build a better future.
-        </p>
+        <div className="flex items-center justify-between h-20">
 
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-          <Link
-            to="/contact"
-            className="w-full sm:w-auto bg-white text-green-700 px-8 py-4 rounded-lg font-semibold text-center hover:bg-gray-100 transition duration-300"
-          >
-            Contact Us
+          <Link to="/">
+            <img
+              src={Logo}
+              alt="HopeBridge Logo"
+              className="h-14 md:h-16 object-contain"
+            />
           </Link>
 
-          <button className="w-full sm:w-auto bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition duration-300">
-            Donate Today
+          <nav className="hidden md:flex items-center gap-8">
+
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.name}
+                to={link.path}
+                className={({ isActive }) =>
+                  `font-medium transition-colors duration-300 ${
+                    isActive
+                      ? "text-yellow-400"
+                      : "text-white hover:text-yellow-300"
+                  }`
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
+
+            <NavLink
+              to="/donate"
+              className="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded-full font-semibold transition duration-300"
+            >
+              Donate
+            </NavLink>
+
+          </nav>
+
+
+          <button
+            className="md:hidden text-white text-2xl"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
+
         </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="md:hidden pb-6">
+
+            <nav className="flex flex-col gap-5 mt-4">
+
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `font-medium transition-colors duration-300 ${
+                      isActive
+                        ? "text-yellow-400"
+                        : "text-white hover:text-yellow-300"
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              ))}
+
+              <NavLink
+                to="/donate"
+                onClick={() => setMenuOpen(false)}
+                className="bg-red-700 hover:bg-red-800 text-white px-5 py-3 rounded-full font-semibold text-center transition duration-300"
+              >
+                Donate
+              </NavLink>
+
+            </nav>
+
+          </div>
+        )}
+
       </div>
-    </section>
+    </header>
   );
 }

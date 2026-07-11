@@ -4,34 +4,53 @@ function TextAreaField({
   value,
   onChange,
   placeholder,
-  required,
+  required = true,
+  error,
 }) {
   return (
-    <div className="mb-4">
-      <label className="block font-medium mb-2">
+    <div className="w-full mb-6">
+      <label
+        htmlFor={name}
+        className="block text-sm sm:text-base font-semibold text-gray-700 mb-2"
+      >
         {label}
+        {required && <span className="text-red-600 ml-1">*</span>}
       </label>
 
       <textarea
+        id={name}
         name={name}
-        value={value}
+        value={value || ""}
         onChange={onChange}
         placeholder={placeholder}
         required={required}
         rows={5}
-        className={`w-full rounded-lg p-3 ${
-    errors.message
-      ? "border-2 border-red-500"
-      : "border border-gray-300"
-  }`}
-/>
+        className={`
+          w-full
+          rounded-xl
+          border
+          bg-white
+          px-4
+          py-3
+          text-gray-700
+          placeholder:text-gray-400
+          resize-none
+          outline-none
+          transition-all
+          duration-200
+          ${
+            error
+              ? "border-red-500 focus:ring-2 focus:ring-red-300"
+              : "border-gray-300 focus:border-red-600 focus:ring-2 focus:ring-red-200"
+          }
+        `}
+      />
 
-{errors.message && (
-  <p className="text-red-500 text-sm mt-1">
-    {errors.message}
-  </p>
-)}
-      
+      {error && (
+        <p className="mt-2 text-sm text-red-600">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
