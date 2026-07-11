@@ -440,8 +440,8 @@ return (
       <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-10">
         <FormHeader />
 
-        <h2 className="text-red-600 text-2xl font-bold">
-          Current Step: {step}
+        <h2 className="text-black text-2xl font-bold my-6">
+          Step: {step}
         </h2>
 
         {step === 1 && (
