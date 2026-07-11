@@ -6,6 +6,7 @@ function InputField({
   onChange,
   placeholder,
   required = true,
+  error,
 }) {
   return (
     <div className="mb-4">
@@ -20,8 +21,18 @@ function InputField({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+        className={`w-full rounded-lg p-3 focus:outline-none focus:ring-2 ${
+          error
+            ? "border-2 border-red-500 focus:ring-red-500"
+            : "border border-gray-300 focus:ring-green-600"
+        }`}
       />
+
+      {error && (
+        <p className="text-red-500 text-sm mt-1">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

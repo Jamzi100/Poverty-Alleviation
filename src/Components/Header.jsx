@@ -1,26 +1,33 @@
-import {Link} from 'react-router-dom';
-import Logo from '../assets/hopebridge-logo.png';
+import { Link } from "react-router-dom";
 
-
-function Header() {
+export default function DonateCTA() {
   return (
-    <nav className="sticky top-0 left-0 w-full bg-white shadow-md z-50">
-      <div className="flex items-center justify-between  bg-gray-600 text-white ">
-      <img src={Logo} 
-      alt="HopeBridge logo" 
-      width="100" 
-      height="80" 
-      />
-      <div className="flex space-x-12 text-lg font-semibold">
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Link to="/contact">Contact</Link>
-      <Link to="/donate">Donate</Link>
-      <Link to="/get-involved">Get Involved</Link>
+    <section className="bg-green-700 py-14 sm:py-16 lg:py-20">
+      <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          Together, We Can Change Lives
+        </h2>
+
+        <p className="mt-5 text-base sm:text-lg text-green-100 max-w-3xl mx-auto leading-7 sm:leading-8">
+          Every donation helps HopeBridge provide food, education,
+          healthcare, housing, skills training, and opportunities for
+          individuals and families in need. Your generosity creates hope
+          and empowers communities to build a better future.
+        </p>
+
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+          <Link
+            to="/contact"
+            className="w-full sm:w-auto bg-white text-green-700 px-8 py-4 rounded-lg font-semibold text-center hover:bg-gray-100 transition duration-300"
+          >
+            Contact Us
+          </Link>
+
+          <button className="w-full sm:w-auto bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition duration-300">
+            Donate Today
+          </button>
+        </div>
       </div>
-      </div>
-    </nav>
+    </section>
   );
 }
-
-export default Header;

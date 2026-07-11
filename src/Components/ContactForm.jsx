@@ -1,0 +1,167 @@
+import { useState } from "react";
+import InputField from "./InputField";
+
+export default function ContactForm() {
+
+  
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({});
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const validateForm = () => {
+  const newErrors = {};
+
+  if (!formData.firstName.trim()) {
+    newErrors.firstName = "First name is required.";
+  }
+
+  if (!formData.lastName.trim()) {
+    newErrors.lastName = "Last name is required.";
+  }
+
+  if (!formData.email.trim()) {
+    newErrors.email = "Email is required.";
+  } else if (
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+  ) {
+    newErrors.email = "Please enter a valid email address.";
+  }
+
+  if (!formData.phone.trim()) {
+    newErrors.phone = "Phone number is required.";
+  }
+
+  if (!formData.subject.trim()) {
+    newErrors.subject = "Subject is required.";
+  }
+
+  if (!formData.message.trim()) {
+    newErrors.message = "Message is required.";
+  }
+
+  setErrors(newErrors);
+
+  return Object.keys(newErrors).length === 0;
+};
+
+    const handleSubmit = (e) => {
+  e.preventDefault();
+
+  if (!validateForm()) {
+    return;
+  }
+
+  alert("Message sent successfully!");
+
+  setFormData({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  setErrors({});
+};
+
+
+  
+  return (
+    <div>
+       <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+        Contact Us
+      </h2>
+
+      <form onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+  <InputField
+    label="First Name"
+    type="text"
+    name="firstName"
+    value={formData.firstName}
+    onChange={handleChange}
+    placeholder="Enter your first name"
+  />
+
+  <InputField
+    label="Last Name"
+    type="text"
+    name="lastName"
+    value={formData.lastName}
+    onChange={handleChange}
+    placeholder="Enter your last name"
+  />
+
+  <InputField
+    label="Email"
+    type="email"
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+    placeholder="Enter your email"
+  />
+
+  <InputField
+    label="Phone Number"
+    type="tel"
+    name="phone"
+    value={formData.phone}
+    onChange={handleChange}
+    placeholder="Enter your phone number"
+  />
+
+</div>
+
+<InputField
+  label="Subject"
+  type="text"
+  name="subject"
+  value={formData.subject}
+  onChange={handleChange}
+  placeholder="Enter the subject"
+/>
+
+<div className="mb-6">
+  <label className="block mb-2 font-medium">
+    Message
+  </label>
+
+  <textarea
+    name="message"
+    value={formData.message}
+    onChange={handleChange}
+    rows="6"
+    placeholder="Write your message..."
+    required
+    className="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600 resize-none"
+  />
+</div>
+
+<button
+  type="submit"
+  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition duration-300"
+>
+  Send Message
+</button>
+      </form>
+    </div>
+  );
+}

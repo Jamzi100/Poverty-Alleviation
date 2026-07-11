@@ -3,7 +3,11 @@ import RadioGroup from "./RadioGroup"
 import SelectField from "./SelectField";
 import states from "../Data/State";
 
-function PersonalInfo({ formData, handleChange }) {
+function PersonalInfo({
+  formData,
+  handleChange,
+  errors,
+}) {
 return(
     <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div>
@@ -13,6 +17,8 @@ return(
         type= "text"
         value={formData.firstName}
         onChange={handleChange}
+        placeholder="Enter your first name"
+  error={errors.firstName}
         />
     </div>
     <div>
@@ -22,7 +28,8 @@ return(
         type= "text"
         value={formData.lastName}
         onChange={handleChange}
-
+        placeholder="Enter your last name"
+  error={errors.lastName}
         />
     </div>
     <div>
@@ -32,15 +39,19 @@ return(
         type= "email"
         value={formData.email}
         onChange={handleChange}
+        placeholder="Enter your email"
+  error={errors.email}
         />
     </div>
     <div>
         <InputField
         label= "Phone Number"
-        name= "phoneNumber"
+        name= "phone"
         type= "tel"
-        value={formData.phoneNumber}
+        value={formData.phone}
         onChange={handleChange}
+        placeholder="Enter your phone number"
+  error={errors.phone}
         />
     </div>
     <div>
@@ -50,6 +61,8 @@ return(
         type= "text"
         value={formData.address}
         onChange={handleChange}
+        placeholder="Enter your Address"
+  error={errors.address}
         />
     </div>
     <div>
@@ -63,6 +76,7 @@ return(
   ]}
   value={formData.gender}
   onChange={handleChange}
+  error={errors.gender}
 />
     </div>
     <div>
@@ -72,6 +86,7 @@ return(
   options={["Nigeria"]}
   value={formData.country}
   onChange={handleChange}
+  error={errors.country}
 />
     </div>
     <div>
@@ -81,6 +96,7 @@ return(
   options={states}
   value={formData.state}
   onChange={handleChange}
+  error={errors.state}
 />
     </div>
     <div>
@@ -91,6 +107,7 @@ return(
   value={formData.lga}
   onChange={handleChange}
   placeholder="Enter your Local Government Area"
+  error={errors.lga}
 />
     </div>
     <div>
@@ -116,6 +133,7 @@ return(
   ]}
   value={formData.maritalStatus}
   onChange={handleChange}
+  error={errors.maritalStatus}
 />
     </div>
     <div>
@@ -126,6 +144,7 @@ return(
   value={formData.householdSize}
   onChange={handleChange}
   placeholder="Enter number of people in your household"
+  error={errors.householdSize}
 />
     </div>
     </section>

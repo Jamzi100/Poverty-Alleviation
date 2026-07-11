@@ -21,12 +21,7 @@ export default function Footer(){
             <h2 className="text-2xl font-bold">
       HopeBridge
     </h2>
-        </div>
-          <p className="text-gray-400 leading-7">
-    HopeBridge is dedicated to empowering individuals and families through
-    food assistance, education, healthcare, housing support, skill
-    development, and community-driven initiatives.
-  </p>
+
 
     </div>
     <div>
@@ -69,8 +64,55 @@ export default function Footer(){
       </Link>
     </li>
   </ul>
+</div>
+<div>
+  <h3 className="text-xl font-semibold mb-4">Our Services</h3>
+
+  <ul className="space-y-3 text-gray-400">
+    <li>Food Assistance</li>
+    <li>Education Support</li>
+    <li>Healthcare</li>
+    <li>Housing Support</li>
+    <li>Skill Training</li>
+    <li>Micro Grants</li>
+  </ul>
+</div>
+
+<div>
+  <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
+
+  <div className="space-y-4 text-gray-400">
+
+    <div className="flex items-center gap-3">
+      <FaLocationDot className="text-green-500" />
+      <span>Abuja, Nigeria</span>
+    </div>
+
+    <div className="flex items-center gap-3">
+      <FaPhone className="text-green-500" />
+      <span>+234 800 000 0000</span>
+    </div>
+
+    <div className="flex items-center gap-3">
+      <FaEnvelope className="text-green-500" />
+      <span>support@hopebridge.org</span>
+    </div>
 
   </div>
+
+  {/* Social Media */}
+  <div className="flex gap-5 mt-6 text-2xl">
+    <FaFacebook className="hover:text-blue-500 cursor-pointer transition-colors" />
+    <FaInstagram className="hover:text-pink-500 cursor-pointer transition-colors" />
+    <FaXTwitter className="hover:text-gray-300 cursor-pointer transition-colors" />
+    <FaLinkedin className="hover:text-blue-400 cursor-pointer transition-colors" />
+  </div>
+  <p className="text-2"mt-4>
+    © 2026 HopeBridge. All Rights Reserved.
+Privacy Policy | Terms of Service
+  </p>
+</div>
+</div>
     </div>
     </footer>
     )

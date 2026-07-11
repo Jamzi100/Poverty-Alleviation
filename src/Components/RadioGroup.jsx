@@ -5,6 +5,7 @@ function RadioGroup({
   value,
   onChange,
   required,
+  error,
 }) {
   return (
     <div className="mb-4">
@@ -26,11 +27,16 @@ function RadioGroup({
               onChange={onChange}
               required={required}
             />
-
             {option}
           </label>
         ))}
       </div>
+
+      {error && (
+        <p className="text-red-500 text-sm mt-2">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

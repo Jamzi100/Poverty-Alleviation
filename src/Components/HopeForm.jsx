@@ -14,7 +14,7 @@ function HopeForm() {
     firstName: "",
     lastName: "",
     email: "",
-    phoneNumber: "",
+    phone: "",
     address: "",
     gender: "",
     country: "Nigeria",
@@ -28,7 +28,6 @@ function HopeForm() {
   urgency: "",
   employmentStatus: "",
   monthlyIncome: "",
-  description: "",
 
   mealsPerDay: "",
   peopleNeedingFood: "",
@@ -87,48 +86,290 @@ communityImpact: "",
 
 agreement: false,
   });
+  
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-  const { name, value, type, checked } = e.target;
+  const { name, value } = e.target;
 
   setFormData((prev) => ({
     ...prev,
-    [name]: type === "checkbox" ? checked : value,
+    [name]: value,
   }));
 };
 
-const handleSubmit = () => {
-  console.log("Button clicked!");
-  console.log(formData.agreement);
+const validateStep = () => {
+  const newErrors = {};
 
-    if (!formData.agreement) {
-      alert("Please accept the declaration before submitting.");
-      return;
+  if (step === 1) {
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required.";
     }
 
-    console.log(formData);
-    setSubmitted(true);
-  };
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required.";
+    }
+
+    if (!formData.email.trim()) {
+  newErrors.email = "Email is required.";
+} else if (
+  !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+) {
+  newErrors.email = "Enter a valid email address.";
+}
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required.";
+    }
+
+    if (!formData.address.trim()) {
+      newErrors.address = "Address is required.";
+    }
+
+    if (!formData.gender) {
+      newErrors.gender = "Gender is required.";
+    }
+    if (!formData.country.trim()) {
+      newErrors.country = "Country is required.";
+    }
+    if (!formData.state.trim()) {
+      newErrors.state = "State is required.";
+    }
+    if (!formData.lga.trim()) {
+      newErrors.lga = "Local Government is required.";
+    }
+    
+    if (!formData.maritalStatus.trim()) {
+      newErrors.maritalStatus = "Marital Status is required.";
+    }
+  }
+
+  if (step === 2){
+    if(!formData.assistanceType.trim()){
+      newErrors.assistanceType = "Assistance Type is required.";
+    }
+    if(!formData.urgency.trim()){
+      newErrors.urgency = "Urgency is required.";
+    }
+    if(!formData.employmentStatus.trim()){
+      newErrors.employmentStatus = "Employment Status is required.";
+    }
+    if(!formData.monthlyIncome.trim()){
+      newErrors.monthlyIncome = "Monthly Income is required.";
+    }
+  }
+
+  if (step === 3) {
+  if (!formData.mealsPerDay.trim()) {
+    newErrors.mealsPerDay = "Meals per day is required.";
+  }
+
+  if (!formData.peopleNeedingFood.trim()) {
+    newErrors.peopleNeedingFood = "Number of people needing food is required.";
+  }
+
+  if (!formData.receivingFoodSupport.trim()) {
+    newErrors.receivingFoodSupport = "Please indicate if you are receiving food support.";
+  }
+
+  if (!formData.foodNeedDuration.trim()) {
+    newErrors.foodNeedDuration = "Food need duration is required.";
+  }
+
+  if (!formData.dietaryRestrictions.trim()) {
+    newErrors.dietaryRestrictions = "Dietary restrictions field is required.";
+  }
+
+  if (!formData.childrenUnderFive.trim()) {
+    newErrors.childrenUnderFive = "Please specify if there are children under five.";
+  }
+
+  if (!formData.elderlyAtHome.trim()) {
+    newErrors.elderlyAtHome = "Please specify if there are elderly people at home.";
+  }
+
+  if (!formData.foodSituation.trim()) {
+    newErrors.foodSituation = "Please describe your food situation.";
+  }
+  if (!formData.medicalAssistanceFor.trim()) {
+    newErrors.medicalAssistanceFor = "Please specify who needs medical assistance.";
+  }
+
+  if (!formData.medicalAssistanceType.trim()) {
+    newErrors.medicalAssistanceType = "Medical assistance type is required.";
+  }
+
+  if (!formData.medicalDiagnosis.trim()) {
+    newErrors.medicalDiagnosis = "Medical diagnosis is required.";
+  }
+
+  if (!formData.medicalUrgency.trim()) {
+    newErrors.medicalUrgency = "Medical urgency is required.";
+  }
+
+  if (!formData.estimatedMedicalCost.trim()) {
+    newErrors.estimatedMedicalCost = "Estimated medical cost is required.";
+  }
+
+  if (!formData.medicalSituation.trim()) {
+    newErrors.medicalSituation = "Please describe your medical situation.";
+  }
+
+  if (!formData.housingStatus.trim()) {
+    newErrors.housingStatus = "Housing status is required.";
+  }
+
+  if (!formData.housingAssistanceType.trim()) {
+    newErrors.housingAssistanceType = "Housing assistance type is required.";
+  }
+
+  if (!formData.facingEviction.trim()) {
+    newErrors.facingEviction = "Please indicate if you are facing eviction.";
+  }
+
+  if (!formData.housingHouseholdSize.trim()) {
+    newErrors.housingHouseholdSize = "Household size is required.";
+  }
+
+  if (!formData.housingProblemDuration.trim()) {
+    newErrors.housingProblemDuration = "Housing problem duration is required.";
+  }
+
+  if (!formData.housingSituation.trim()) {
+    newErrors.housingSituation = "Please describe your housing situation.";
+  }
+
+  if (!formData.educationFor.trim()) {
+    newErrors.educationFor = "Please specify who the education assistance is for.";
+  }
+
+  if (!formData.educationLevel.trim()) {
+    newErrors.educationLevel = "Education level is required.";
+  }
+
+  if (!formData.schoolName.trim()) {
+    newErrors.schoolName = "School name is required.";
+  }
+
+  if (!formData.educationSupportType.trim()) {
+    newErrors.educationSupportType = "Education support type is required.";
+  }
+
+  if (!formData.educationAmount.trim()) {
+    newErrors.educationAmount = "Education amount is required.";
+  }
+
+  if (!formData.receivingEducationSupport.trim()) {
+    newErrors.receivingEducationSupport = "Please indicate if you are currently receiving education support.";
+  }
+
+  if (!formData.educationReason.trim()) {
+    newErrors.educationReason = "Please explain why you need educational assistance.";
+  }
+
+if (!formData.businessName.trim()) {
+    newErrors.businessName = "Business name is required.";
+  }
+
+  if (!formData.businessType.trim()) {
+    newErrors.businessType = "Business type is required.";
+  }
+
+  if (!formData.businessOperating.trim()) {
+    newErrors.businessOperating = "Please indicate how long the business has been operating.";
+  }
+
+  if (!formData.grantAmount.trim()) {
+    newErrors.grantAmount = "Grant amount is required.";
+  }
+
+  if (!formData.grantPurpose.trim()) {
+    newErrors.grantPurpose = "Grant purpose is required.";
+  }
+
+  if (!formData.businessBeneficiaries.trim()) {
+    newErrors.businessBeneficiaries = "Please specify who will benefit from the business.";
+  }
+
+  if (!formData.businessDescription.trim()) {
+    newErrors.businessDescription = "Please provide a description of your business.";
+  }
+
+  if (!formData.skillType.trim()) {
+    newErrors.skillType = "Skill type is required.";
+  }
+
+  if (!formData.previousTraining.trim()) {
+    newErrors.previousTraining = "Please indicate if you have received previous training.";
+  }
+
+  if (!formData.highestEducation.trim()) {
+    newErrors.highestEducation = "Highest education level is required.";
+  }
+
+  if (!formData.currentlyEmployed.trim()) {
+    newErrors.currentlyEmployed = "Please indicate your current employment status.";
+  }
+
+  if (!formData.trainingSchedule.trim()) {
+    newErrors.trainingSchedule = "Preferred training schedule is required.";
+  }
+
+  if (!formData.trainingReason.trim()) {
+    newErrors.trainingReason = "Please explain why you want this training.";
+  }
+
+  if (!formData.communityName.trim()) {
+    newErrors.communityName = "Community name is required.";
+  }
+
+  if (!formData.communityLga.trim()) {
+    newErrors.communityLga = "Local Government Area is required.";
+  }
+
+  if (!formData.communityState.trim()) {
+    newErrors.communityState = "State is required.";
+  }
+
+  if (!formData.beneficiaryCount.trim()) {
+    newErrors.beneficiaryCount = "Number of beneficiaries is required.";
+  }
+
+  if (!formData.projectType.trim()) {
+    newErrors.projectType = "Project type is required.";
+  }
+
+  if (!formData.reportedToAuthorities.trim()) {
+    newErrors.reportedToAuthorities = "Please indicate whether the issue has been reported to the authorities.";
+  }
+
+  if (!formData.communityProblem.trim()) {
+    newErrors.communityProblem = "Please describe the community problem.";
+  }
+
+  if (!formData.communityImpact.trim()) {
+    newErrors.communityImpact = "Please describe the impact of the problem on the community.";
+  }
+}
+
+  setErrors(newErrors);
+
+  return Object.keys(newErrors).length === 0;
+};
+
+const nextStep = () => {
+  if (validateStep()) {
+    setStep((prev) => prev + 1);
+  }
+};
+
+const prevStep = () => {
+  setStep((prev) => prev - 1);
+};
 
   if (submitted) {
     return <SuccessMessage />;
   }
-
-  const handleNext = () => {
-  if (step === 1) {
-    if (
-      !formData.firstName ||
-      !formData.lastName ||
-      !formData.email ||
-      !formData.phoneNumber
-    ) {
-      alert("Please complete all required Personal Information fields.");
-      return;
-    }
-  }
-
-  setStep(step + 1);
-};
 
   return(
     <section>
@@ -137,6 +378,7 @@ const handleSubmit = () => {
   <PersonalInfo
     formData={formData}
     handleChange={handleChange}
+    errors={errors}
   />
 )}
 
@@ -144,6 +386,7 @@ const handleSubmit = () => {
   <AssistanceInformation
     formData={formData}
     handleChange={handleChange}
+    errors={errors}
   />
 )}
 
@@ -151,6 +394,7 @@ const handleSubmit = () => {
   <AssistanceDetails
     formData={formData}
     handleChange={handleChange}
+    errors={errors}
   />
 )}
 
@@ -158,16 +402,19 @@ const handleSubmit = () => {
   <ReviewApplication
     formData={formData}
     handleChange={handleChange}
+    errors={errors}
   />
 )}
 
 
         </div>
         <div className="flex justify-between mt-8">
-  {step > 1 && step < 4 && (
+  <div className="flex justify-between mt-8">
+  {step > 1 && (
     <button
-      onClick={() => setStep(step - 1)}
-      className="bg-gray-500 text-white px-6 py-2 rounded"
+      type="button"
+      onClick={prevStep}
+      className="px-6 py-2 bg-gray-500 text-white rounded-lg"
     >
       Previous
     </button>
@@ -175,19 +422,19 @@ const handleSubmit = () => {
 
   {step < 4 ? (
     <button
-      onClick={() => setStep(step + 1)}
-      className="bg-green-600 text-white px-6 py-2 rounded ml-auto"
+      type="button"
+      onClick={nextStep}
+      className="px-6 py-2 bg-green-600 text-white rounded-lg"
     >
       Next
     </button>
   ) : (
-    <button
-  onClick={handleNext}
-  className="bg-green-600 text-white px-6 py-2 rounded ml-auto"
->
-  Next
+    <button type="button" onClick={handleSubmit}>
+  Submit
 </button>
   )}
+</div>
+
   </div>
     </section>
   )

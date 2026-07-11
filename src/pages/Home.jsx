@@ -14,7 +14,6 @@ export default function Home() {
         <Impact />
         <HomeService />
         <GetInvolved />
-        <HopeForm />
     </div>
   )   
 }

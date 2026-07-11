@@ -74,7 +74,6 @@ export default function HomeService() {
     className="inline-block bg-red-900 text-white px-8 py-3 rounded-full hover:bg-red-700 transition duration-300 hover:scale-105"
   >
     View All Services
-    <FaArrowRight className="inline-block ml-2" />
   </Link>
 </div>
 
