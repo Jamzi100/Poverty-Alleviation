@@ -30,11 +30,6 @@ export default function Footer() {
               HopeBridge
             </h2>
 
-            <p className="mt-4 text-gray-400 text-sm leading-7">
-              Bridging the gap between hardship and opportunity by empowering
-              individuals, families and communities through sustainable support.
-            </p>
-
             <div className="flex gap-4 mt-6 text-xl">
 
               <a
