@@ -14,7 +14,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-gray-300 shadow-lg">
+    <header className="sticky top-0 z-50 bg-red-700 shadow-lg">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
         <div className="flex items-center justify-between h-20">
@@ -27,17 +27,18 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-6">
 
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.path}
                 className={({ isActive }) =>
-                  `font-medium transition-colors duration-300 ${
+                  `px-5 py-2 rounded-full font-medium transition-all duration-300 ${
                     isActive
-                      ? "text-red-500"
-                      : "text-black hover:text-red-500"
+                      ? "bg-white text-red-700"
+                      : "text-white border border-white hover:bg-white hover:text-red-700"
                   }`
                 }
               >
@@ -47,14 +48,14 @@ export default function Header() {
 
             <NavLink
               to="/donate"
-              className="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded-full font-semibold transition duration-300"
+              className="border-1 border-white text-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-red-700 transition duration-300"
             >
               Donate
             </NavLink>
 
           </nav>
 
-
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white text-2xl"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -66,9 +67,9 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden pb-6">
+          <div className="md:hidden bg-red-700 pb-6">
 
-            <nav className="flex flex-col gap-5 mt-4">
+            <nav className="flex flex-col gap-4 mt-4">
 
               {navLinks.map((link) => (
                 <NavLink
@@ -76,10 +77,10 @@ export default function Header() {
                   to={link.path}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `font-medium transition-colors duration-300 ${
+                    `block text-center px-5 py-3 rounded-full font-medium transition-all duration-300 ${
                       isActive
-                        ? "text-yellow-400"
-                        : "text-white hover:text-yellow-300"
+                        ? "bg-white text-red-700"
+                        : "text-white border border-white hover:bg-white hover:text-red-700"
                     }`
                   }
                 >
@@ -90,7 +91,7 @@ export default function Header() {
               <NavLink
                 to="/donate"
                 onClick={() => setMenuOpen(false)}
-                className="bg-red-700 hover:bg-red-800 text-white px-5 py-3 rounded-full font-semibold text-center transition duration-300"
+                className="bg-white text-red-700 px-5 py-3 rounded-full font-semibold text-center hover:bg-red-100 transition duration-300"
               >
                 Donate
               </NavLink>

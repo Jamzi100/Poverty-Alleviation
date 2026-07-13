@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 py-16">
 
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
 
           
           <div className="text-center sm:text-left">
@@ -112,28 +112,53 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3">
-                <FaPhone className="text-green-500 text-lg" />
-                <span>+234 800 000 0000</span>
-              </div>
+  <FaPhone className="text-green-500 text-lg" />
+
+  <a
+    href="tel:+2348000000000"
+    className="hover:text-green-400 transition"
+  >
+    +234 913 280 4333
+  </a>
+</div>
 
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-green-500 text-lg" />
-                <span>support@hopebridge.org</span>
+                <a
+  href="mailto:support@hopebridge.org"
+  className="hover:text-green-400 transition"
+>
+  support@hopebridge.org
+</a>
               </div>
 
             </div>
 
             
             <div className="flex justify-center sm:justify-start gap-5 mt-8 text-2xl">
-
+              <a href="https://web.facebook.com/daniel.joseph.434791"
+              target="_blank"
+              rel="noopener noreferrer">
               <FaFacebook className="cursor-pointer hover:text-blue-500 transition" />
+              </a>
 
+              <a href="https://www.instagram.com/danieljosedj100/"
+              target="_blank"
+              rel="noopener noreferrer">
               <FaInstagram className="cursor-pointer hover:text-pink-500 transition" />
+              </a>
 
-              <FaXTwitter className="cursor-pointer hover:text-gray-300 transition" />
+              <a href="https://x.com/jos33060"
+              target="_blank"
+              rel="noopener noreferrer">
+              <FaXTwitter className="cursor-pointer hover:text-blue-400 transition" />
+              </a>
 
+              {/* <a href="https://x.com/jos33060"
+              target="_blank"
+              rel="noopener noreferrer">
               <FaLinkedin className="cursor-pointer hover:text-blue-400 transition" />
-
+              </a> */}
             </div>
           </div>
 

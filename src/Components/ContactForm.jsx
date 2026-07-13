@@ -84,7 +84,7 @@ export default function ContactForm() {
 
   
   return (
-    <div>
+    <div className="bg-gray-100 px-3 py-4 rounded-lg">
        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
         Contact Us
       </h2>
@@ -151,7 +151,7 @@ export default function ContactForm() {
     rows="6"
     placeholder="Write your message..."
     required
-    className="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600 resize-none"
+    className="bg-white w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600 resize-none"
   />
 </div>
 

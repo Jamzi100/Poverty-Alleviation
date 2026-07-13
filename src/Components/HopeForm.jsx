@@ -85,6 +85,7 @@ communityImpact: "",
 
 agreement: false,
   });
+
   
   const [errors, setErrors] = useState({});
 
@@ -433,16 +434,34 @@ if (submitted) {
   return <SuccessMessage />;
 }
 
+const progress = (step / 4) * 100;
+
 return (
   <section className="bg-gray-100 py-12">
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-10">
+
         <FormHeader />
 
-        <h2 className="text-black text-2xl font-bold my-6">
-          Step: {step}
-        </h2>
+        {/* Progress Bar */}
+        <div className="mt-8 mb-10">
+          <div className="flex justify-between items-center mb-2 text-sm font-medium text-gray-600">
+            <span>Application Progress</span>
+            <span>{progress}%</span>
+          </div>
+
+          <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-red-700 rounded-full transition-all duration-500 ease-in-out"
+              style={{ width: `${progress}%` }}
+            ></div>
+          </div>
+
+          <p className="text-center text-gray-500 mt-3">
+            Step {step} of 4
+          </p>
+        </div>
 
         {step === 1 && (
           <PersonalInfo
@@ -482,7 +501,7 @@ return (
             <button
               type="button"
               onClick={prevStep}
-              className="px-6 py-2 bg-gray-500 text-white rounded-lg"
+              className="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition"
             >
               Previous
             </button>
@@ -492,7 +511,7 @@ return (
             <button
               type="button"
               onClick={nextStep}
-              className="px-6 py-2 bg-green-600 text-white rounded-lg"
+              className="ml-auto px-6 py-2 bg-red-700 text-white rounded-lg hover:bg-red-800 transition"
             >
               Next
             </button>
@@ -500,7 +519,7 @@ return (
             <button
               type="button"
               onClick={handleSubmit}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg"
+              className="ml-auto px-6 py-2 bg-red-700 text-white rounded-lg hover:bg-red-800 transition"
             >
               Submit
             </button>
@@ -509,7 +528,6 @@ return (
         </div>
 
       </div>
-
     </div>
   </section>
 );
