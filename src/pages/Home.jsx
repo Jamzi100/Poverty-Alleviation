@@ -9,7 +9,7 @@ import HopeForm from "../Components/HopeForm"
 export default function Home() {
   return (
     <div>
-        <Hero />
+        <Hero /> 
         <AboutSec />
         <Impact />
         <HomeService />
