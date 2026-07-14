@@ -48,7 +48,7 @@ export default function DonationMethods() {
               key={index}
               className="bg-gray-50 rounded-xl shadow-md p-8 text-center hover:shadow-xl transition duration-300"
             >
-              <div className="flex justify-center text-green-600 mb-5">
+              <div className="flex justify-center text-red-700 mb-5">
                 {method.icon}
               </div>
 

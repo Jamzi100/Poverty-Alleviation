@@ -34,7 +34,7 @@ export default function FAQ() {
   return (
     <section className="bg-gray-50 py-20">
       <div className="max-w-4xl mx-auto px-6">
-        {/* Heading */}
+        
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-800">
             Frequently Asked Questions
@@ -61,9 +61,9 @@ export default function FAQ() {
                 </span>
 
                 {openIndex === index ? (
-                  <FaChevronUp className="text-green-600" />
+                  <FaChevronUp className="text-black" />
                 ) : (
-                  <FaChevronDown className="text-green-600" />
+                  <FaChevronDown className="text-red-600" />
                 )}
               </button>
 

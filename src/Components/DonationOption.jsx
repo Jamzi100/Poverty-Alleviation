@@ -1,10 +1,12 @@
 import { useState } from "react";
+import DonationModal from "./DonationModal";
 
 const amounts = ["₦2,000", "₦5,000", "₦10,000", "₦20,000", "₦50,000"];
 
 export default function DonationOptions() {
   const [selectedAmount, setSelectedAmount] = useState("");
   const [customAmount, setCustomAmount] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <section className="bg-gray-50 py-20">
@@ -19,6 +21,7 @@ export default function DonationOptions() {
           </p>
         </div>
 
+        
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
           {amounts.map((amount) => (
             <button
@@ -29,7 +32,7 @@ export default function DonationOptions() {
               }}
               className={`py-4 rounded-lg font-semibold border transition ${
                 selectedAmount === amount
-                  ? "bg-green-600 text-white border-green-600"
+                  ? "bg-red-600 text-white border-red-600"
                   : "bg-white text-gray-700 border-gray-300 hover:border-green-600"
               }`}
             >
@@ -38,6 +41,7 @@ export default function DonationOptions() {
           ))}
         </div>
 
+        
         <div className="mb-8">
           <label className="block text-gray-700 font-medium mb-2">
             Or Enter a Custom Amount
@@ -55,24 +59,41 @@ export default function DonationOptions() {
           />
         </div>
 
+        
         {(selectedAmount || customAmount) && (
           <div className="text-center mb-8">
             <p className="text-lg text-gray-700">
               Selected Donation:
             </p>
 
-            <p className="text-3xl font-bold text-green-600 mt-2">
+            <p className="text-3xl font-bold text-red-600 mt-2">
               {selectedAmount || `₦${customAmount}`}
             </p>
           </div>
         )}
 
+        
         <div className="text-center">
-          <button className="bg-green-600 hover:bg-green-700 text-white px-10 py-4 rounded-lg font-semibold transition duration-300">
+          <button
+            disabled={!selectedAmount && !customAmount}
+            onClick={() => setShowModal(true)}
+            className={`px-10 py-4 rounded-lg font-semibold transition duration-300 ${
+              selectedAmount || customAmount
+                ? "bg-red-600 hover:bg-red-800 text-white"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed"
+            }`}
+          >
             Proceed to Donate
           </button>
         </div>
       </div>
+
+      
+      <DonationModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        amount={selectedAmount || `₦${customAmount}`}
+      />
     </section>
   );
 }

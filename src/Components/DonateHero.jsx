@@ -9,10 +9,10 @@ export default function DonateHero() {
         className="w-full h-full object-cover"
       />
 
-      {/* Dark Overlay */}
+      
       <div className="absolute inset-0 bg-black/50"></div>
 
-      {/* Hero Content */}
+      
       <div className="absolute inset-0 flex items-center justify-center px-6">
         <div className="text-center max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white">
@@ -25,9 +25,6 @@ export default function DonateHero() {
             need. Together, we can build stronger communities.
           </p>
 
-          <button className="mt-8 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
-            Donate Now
-          </button>
         </div>
       </div>
     </section>

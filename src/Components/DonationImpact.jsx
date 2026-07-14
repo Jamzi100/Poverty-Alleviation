@@ -38,13 +38,13 @@ export default function DonationImpact() {
           {impacts.map((impact, index) => (
             <div
               key={index}
-              className="border border-gray-200 rounded-xl p-8 text-center hover:border-green-600 hover:shadow-lg transition duration-300"
+              className="border border-gray-200 rounded-xl p-8 text-center hover:border-red-700 hover:shadow-lg transition duration-300"
             >
-              <div className="flex justify-center mb-4 text-green-600">
+              <div className="flex justify-center mb-4 text-red-700">
                 <FaHandHoldingHeart size={45} />
               </div>
 
-              <h3 className="text-3xl font-bold text-green-600 mb-3">
+              <h3 className="text-3xl font-bold text-red-700 mb-3">
                 {impact.amount}
               </h3>
 

@@ -55,7 +55,7 @@ export default function WhyDonate() {
               key={index}
               className="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-xl transition duration-300"
             >
-              <div className="text-green-600 flex justify-center mb-5">
+              <div className="text-red-600 flex justify-center mb-5">
                 {reason.icon}
               </div>
 
