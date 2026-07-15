@@ -113,11 +113,12 @@ return(
     <div>
         <InputField
   label="ZIP / Postal Code"
-  name="zipCode"
+  name="zip"
   type="text"
-  value={formData.zipCode}
+  value={formData.zip}
   onChange={handleChange}
   placeholder="e.g. 900001"
+  error={errors.zip}
 />
     </div>
     <div>
