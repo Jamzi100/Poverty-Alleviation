@@ -8,7 +8,6 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ServicePreviewCard from "./ServicePreviewCard";
-import { FaArrowRight } from "react-icons/fa";
 
 export default function HomeService() {
   return (

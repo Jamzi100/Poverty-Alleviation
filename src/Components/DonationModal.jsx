@@ -25,30 +25,23 @@ export default function DonationModal({
       [name]: value,
     }));
 
-    const isFormComplete =
-  formData.fullName.trim() &&
-  formData.email.trim() &&
-  formData.phone.trim() &&
-  paymentMethod;
-
-    
+    // Clear the error for the field being edited
     setErrors((prev) => ({
       ...prev,
       [name]: "",
     }));
   };
 
-  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-  formData.email
-);
+  // Validation checks for enabling the button
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
 
-const isValidPhone = /^\d{10,15}$/.test(formData.phone);
+  const isValidPhone = /^\d{10,15}$/.test(formData.phone);
 
-const isFormComplete =
-  formData.fullName.trim() !== "" &&
-  isValidEmail &&
-  isValidPhone &&
-  paymentMethod !== "";
+  const isFormComplete =
+    formData.fullName.trim() !== "" &&
+    isValidEmail &&
+    isValidPhone &&
+    paymentMethod !== "";
 
   const validateForm = () => {
     const newErrors = {};
@@ -59,20 +52,19 @@ const isFormComplete =
 
     if (!formData.email.trim()) {
       newErrors.email = "Email is required.";
-    } else if (
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
-    ) {
+    } else if (!isValidEmail) {
       newErrors.email = "Please enter a valid email address.";
     }
 
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required.";
-    } else if (!/^\d{10,15}$/.test(formData.phone)) {
+    } else if (!isValidPhone) {
       newErrors.phone = "Please enter a valid phone number.";
     }
 
     if (!paymentMethod) {
-      newErrors.paymentMethod = "Please select a payment method.";
+      newErrors.paymentMethod =
+        "Please select a payment method.";
     }
 
     setErrors(newErrors);
@@ -81,13 +73,10 @@ const isFormComplete =
   };
 
   const handlePayment = () => {
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
-    alert(`🎉COMING SOON`)
+    alert("🎉 COMING SOON");
 
-    
     setFormData({
       fullName: "",
       email: "",
@@ -97,8 +86,6 @@ const isFormComplete =
 
     setPaymentMethod("");
     setErrors({});
-
-    
     setShowModal(false);
   };
 
@@ -106,9 +93,7 @@ const isFormComplete =
 
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-xl p-8 w-full max-w-2xl max-h-[90vh] overflow-y-auto relative">
-
-        
+      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl bg-white p-8">
         <button
           onClick={() => setShowModal(false)}
           className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-black"
@@ -116,17 +101,14 @@ const isFormComplete =
           ×
         </button>
 
-        
-        <h2 className="text-2xl font-bold mb-4">
+        <h2 className="mb-4 text-2xl font-bold">
           Complete Your Donation
         </h2>
 
-        
-        <p className="text-gray-600 mb-6">
+        <p className="mb-6 text-gray-600">
           You are donating <strong>{amount}</strong>
         </p>
 
-        
         <DonationForm
           formData={formData}
           handleChange={handleChange}
@@ -142,17 +124,16 @@ const isFormComplete =
         </div>
 
         <button
-  onClick={handlePayment}
-  disabled={!isFormComplete}
-  className={`w-full mt-8 py-4 rounded-xl font-semibold transition duration-300 ${
-    isFormComplete
-      ? "bg-red-600 hover:bg-red-800 text-white"
-      : "bg-gray-300 text-gray-500 cursor-not-allowed"
-  }`}
->
-  Continue to Payment
-</button>
-
+          onClick={handlePayment}
+          disabled={!isFormComplete}
+          className={`mt-8 w-full rounded-xl py-4 font-semibold transition duration-300 ${
+            isFormComplete
+              ? "bg-red-600 text-white hover:bg-red-800"
+              : "cursor-not-allowed bg-gray-300 text-gray-500"
+          }`}
+        >
+          Continue to Payment
+        </button>
       </div>
     </div>
   );

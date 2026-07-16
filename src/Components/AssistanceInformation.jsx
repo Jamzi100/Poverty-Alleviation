@@ -4,7 +4,9 @@ import RadioGroup from "./RadioGroup";
 
 function AssistanceInformation({
     formData,
-    handleChange
+    handleChange,
+    required,
+    error,
 }) {
     return(
         <section>
@@ -23,6 +25,8 @@ function AssistanceInformation({
     ]}
     value={formData.assistanceType}
     onChange={handleChange}
+    required={required}
+    error={error.assistanceType}
 />
             </div>
             <div>
@@ -36,6 +40,8 @@ function AssistanceInformation({
     ]}
     value={formData.urgency}
     onChange={handleChange}
+    required={required}
+    error={error.urgency}
 />
             </div>
             <div>
@@ -51,6 +57,8 @@ function AssistanceInformation({
     ]}
     value={formData.employmentStatus}
     onChange={handleChange}
+    required={required}
+    error={error.employmentStatus}
 />
             </div>
             <div>
@@ -60,6 +68,8 @@ function AssistanceInformation({
     type="number"
     value={formData.monthlyIncome}
     onChange={handleChange}
+    required={required}
+    error={error.monthlyIncome}
 />
             </div>
         </section>

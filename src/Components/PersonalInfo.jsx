@@ -6,6 +6,7 @@ import states from "../Data/State";
 function PersonalInfo({
   formData,
   handleChange,
+  required,
   errors,
 }) {
 return(
@@ -17,6 +18,7 @@ return(
         type= "text"
         value={formData.firstName}
         onChange={handleChange}
+        required={required}
         placeholder="Enter your first name"
   error={errors.firstName}
         />
@@ -28,6 +30,7 @@ return(
         type= "text"
         value={formData.lastName}
         onChange={handleChange}
+        required={required}
         placeholder="Enter your last name"
   error={errors.lastName}
         />
@@ -39,6 +42,7 @@ return(
         type= "email"
         value={formData.email}
         onChange={handleChange}
+        required={required}
         placeholder="Enter your email"
   error={errors.email}
         />
@@ -50,6 +54,7 @@ return(
         type= "tel"
         value={formData.phone}
         onChange={handleChange}
+        required={required}
         placeholder="Enter your phone number"
   error={errors.phone}
         />
@@ -61,6 +66,7 @@ return(
         type= "text"
         value={formData.address}
         onChange={handleChange}
+        required={required}
         placeholder="Enter your Address"
   error={errors.address}
         />
@@ -76,6 +82,7 @@ return(
   ]}
   value={formData.gender}
   onChange={handleChange}
+  required={required}
   error={errors.gender}
 />
     </div>
@@ -86,6 +93,7 @@ return(
   options={["Nigeria"]}
   value={formData.country}
   onChange={handleChange}
+  required={required}
   error={errors.country}
 />
     </div>
@@ -96,6 +104,7 @@ return(
   options={states}
   value={formData.state}
   onChange={handleChange}
+  required={required}
   error={errors.state}
 />
     </div>
@@ -106,6 +115,7 @@ return(
   type="text"
   value={formData.lga}
   onChange={handleChange}
+  required={required}
   placeholder="Enter your Local Government Area"
   error={errors.lga}
 />
@@ -117,6 +127,7 @@ return(
   type="text"
   value={formData.zip}
   onChange={handleChange}
+  required={required}
   placeholder="e.g. 900001"
   error={errors.zip}
 />
@@ -134,6 +145,7 @@ return(
   ]}
   value={formData.maritalStatus}
   onChange={handleChange}
+  required={required}
   error={errors.maritalStatus}
 />
     </div>
@@ -144,6 +156,7 @@ return(
   type="number"
   value={formData.householdSize}
   onChange={handleChange}
+  required={required}
   placeholder="Enter number of people in your household"
   error={errors.householdSize}
 />

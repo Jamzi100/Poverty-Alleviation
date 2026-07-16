@@ -1,5 +1,3 @@
-import Image from "../assets/volunteer.jpg";
-
 export default function AboutContent() {
   return (
     <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">

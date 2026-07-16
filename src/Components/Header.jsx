@@ -16,9 +16,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-red-700 shadow-lg">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-
         <div className="flex items-center justify-between h-20">
-
+          {/* Logo */}
           <Link to="/">
             <img
               src={Logo}
@@ -29,7 +28,6 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
@@ -48,11 +46,16 @@ export default function Header() {
 
             <NavLink
               to="/donate"
-              className="border-1 border-white text-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-red-700 transition duration-300"
+              className={({ isActive }) =>
+                `px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+                  isActive
+                    ? "bg-white text-red-700"
+                    : "border border-white text-white hover:bg-white hover:text-red-700"
+                }`
+              }
             >
               Donate
             </NavLink>
-
           </nav>
 
           {/* Mobile Menu Button */}
@@ -62,15 +65,12 @@ export default function Header() {
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
-
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Navigation */}
         {menuOpen && (
           <div className="md:hidden bg-red-700 pb-6">
-
             <nav className="flex flex-col gap-4 mt-4">
-
               {navLinks.map((link) => (
                 <NavLink
                   key={link.name}
@@ -91,16 +91,19 @@ export default function Header() {
               <NavLink
                 to="/donate"
                 onClick={() => setMenuOpen(false)}
-                className="bg-white text-red-700 px-5 py-3 rounded-full font-semibold text-center hover:bg-red-100 transition duration-300"
+                className={({ isActive }) =>
+                  `block text-center px-5 py-3 rounded-full font-semibold transition-all duration-300 ${
+                    isActive
+                      ? "bg-white text-red-700"
+                      : "border border-white text-white hover:bg-white hover:text-red-700"
+                  }`
+                }
               >
                 Donate
               </NavLink>
-
             </nav>
-
           </div>
         )}
-
       </div>
     </header>
   );
