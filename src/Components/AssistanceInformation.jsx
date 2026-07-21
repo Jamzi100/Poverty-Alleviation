@@ -6,7 +6,7 @@ function AssistanceInformation({
     formData,
     handleChange,
     required,
-    error,
+    errors,          // renamed from `error`
 }) {
     return(
         <section>
@@ -26,7 +26,7 @@ function AssistanceInformation({
     value={formData.assistanceType}
     onChange={handleChange}
     required={required}
-    error={error.assistanceType}
+    error={errors.assistanceType}   // renamed
 />
             </div>
             <div>
@@ -41,7 +41,7 @@ function AssistanceInformation({
     value={formData.urgency}
     onChange={handleChange}
     required={required}
-    error={error.urgency}
+    error={errors.urgency}          // renamed
 />
             </div>
             <div>
@@ -58,7 +58,7 @@ function AssistanceInformation({
     value={formData.employmentStatus}
     onChange={handleChange}
     required={required}
-    error={error.employmentStatus}
+    error={errors.employmentStatus} // renamed
 />
             </div>
             <div>
@@ -69,7 +69,7 @@ function AssistanceInformation({
     value={formData.monthlyIncome}
     onChange={handleChange}
     required={required}
-    error={error.monthlyIncome}
+    error={errors.monthlyIncome}    // renamed
 />
             </div>
         </section>
